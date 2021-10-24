@@ -3,6 +3,7 @@
 
 
 #### In this blog series we are going to explore react table.You can checkout my blog to understand mmore about it.
+#### Link of Blog : https://medium.com/@vncvish/unleashing-the-power-of-react-table-ed1dcee9c178
 
 #### In this part we have done following things.
 * Generated fake dataset for creating table.
