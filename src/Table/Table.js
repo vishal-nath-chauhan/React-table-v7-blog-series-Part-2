@@ -1,8 +1,9 @@
 import React, { useMemo } from "react";
 import { Table, Thead, Tbody, Tr, Th, Td, Text, Box } from "@chakra-ui/react";
+import { PhoneIcon, AddIcon, WarningIcon,ArrowDownIcon,ArrowUpIcon } from '@chakra-ui/icons'
 // import Data from "../Dataset/Data.json";
 import Data from '../Dataset/Data.json'
-import { useTable } from "react-table";
+import { useTable,useSortBy } from "react-table";
 import { COLUMNS } from "./Columns";
 const DataTable = () => {
   //   let columns = Object.keys(Data[0]);  //columns list before using react table.
@@ -10,11 +11,14 @@ const DataTable = () => {
   // we momoized the columns and data so that our table don't get render again and again.
 
   const columns = useMemo(() => COLUMNS, []);
+
+  // you can pass your data at Data 
   const data = useMemo(() => Data, []);
+
   const tableInstance = useTable({
     columns,
     data,
-  });
+  },useSortBy);
 
   const { getTableProps, getTableBodyProps, headerGroups, prepareRow, rows } =
     tableInstance;
@@ -39,9 +43,14 @@ const DataTable = () => {
                   className="th1"
                   key={columnIndex}
                   color={"gray.800"}
+                  {...column.getHeaderProps(column.getSortByToggleProps())}
                 >
                   {/* This will render the Title of column */}
                   {column.render("Header")}
+                  <span>
+
+                    {column.isSorted?(column.isSortedDesc? <ArrowDownIcon/> :<ArrowUpIcon/> ):''}
+                  </span>
                 </Th>
               ))}
             </Tr>
