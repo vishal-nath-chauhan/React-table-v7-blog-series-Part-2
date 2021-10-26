@@ -1,4 +1,4 @@
-# Unleashing the power of React table
+# Unleashing the power of React table Part 2
 #### React table with ChakraUI
 ![](https://github.com/vishal-nath-chauhan/React-table-v7-blog-series/blob/main/public/images/react-table-logo.png)
 #### In this series we are going to explore react table a headless library independent of UI components.
